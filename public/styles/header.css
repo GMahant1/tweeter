@@ -1,0 +1,22 @@
+header {
+  display: flex;
+  height: 400px;
+  width: 100%;
+  background-color: rgba(177, 147, 238, 0.504);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 120px;
+  background-image: url("https://www.transparenttextures.com/patterns/handmade-paper.png");
+}
+
+.username {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.div image {
+  justify-content: center;
+  align-items: center;
+}
