@@ -1,11 +1,14 @@
 nav {
   display: flex;
   justify-content: space-between;
+  font-family: "Bungee", sans-serif;
   height: 120px;
   width: 100%;
   background-color: #4056A1;
   color: #FFFFFF;
   padding: 1.5em;
+  position: fixed;
+  top: 0;
 }
 
 nav span.logo {
@@ -16,9 +19,12 @@ nav span.logo {
 nav .corner {
   font-family: "Source Sans Pro", sans-serif;
   display: flex;
-  flex-flow: row wrap;
+  flex-direction: column;
+  font-size: larger;
 }
 
 nav .corner i {
   color:red;
+  display: flex;
+  justify-content: center;
 }
