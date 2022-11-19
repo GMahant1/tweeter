@@ -1,0 +1,32 @@
+.new-tweet form {
+  display: flex;
+  flex-flow: column;
+}
+
+.new-tweet form label {
+  font-weight: 700;
+  border-bottom: 4px solid #666;
+  padding-bottom: 0.5em;
+  padding-top: 0.5em;
+  margin-bottom: 1em;
+}
+
+.new-tweet form div {
+  font-family: "Bungee", cursive;
+  display: flex;
+  justify-content: space-between;
+}
+
+.new-tweet form textarea {
+  margin-bottom: 1.25em;
+}
+
+.new-tweet form button {
+  color: white;
+  background-color: #4056A1;
+  padding: 0.25em 0.5em;
+  border: solid;
+}
+
+
+
