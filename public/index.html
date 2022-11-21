@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/tweets.css" type="text/css" />
+
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -39,7 +41,7 @@
       
     </nav>
 
-    <header>
+    <header class="nav-header">
       <div>
           <img src="/images/profile-hex.png"> 
       </div>
@@ -61,7 +63,25 @@
             </div>
           </form>
         </section>
-        <section class="tweets" id="tweet-feed"></section>
+
+        <section class="tweet-container" >
+          <article class="tweet-article">
+            <header class="tweet-header">
+              <i class="fa-solid fa-user"></i>
+              Gaurav Mahant
+              <span class="feed-username">@G.Mahant</span>
+            </header>
+            <p>
+              Hello world!            
+            </p>  
+            <footer class="tweet-footer">
+              10 Days Ago
+              <i class="fa-solid fa-retweet"></i>
+              <i class="fa-solid fa-heart"></i>
+              <i class="fa-solid fa-flag"></i>
+            </footer>  
+          </article>
+        </section>
       
     </main>
   </body>
