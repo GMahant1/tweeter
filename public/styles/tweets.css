@@ -1,0 +1,41 @@
+.tweet-container {
+  diplay: flex;
+  flex-flow: row;
+}
+
+.tweet-container:hover {
+  box-shadow: 5px 5px green; 
+}
+
+.tweet-article {
+  display: flex;
+  flex-flow: column;
+  border: 5px solid #666;
+  padding: 1em;
+}
+
+.tweet-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.span-feed-username {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.tweet-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tweet-footer i:hover {
+  color: yellow;
+}
+
+.tweet-container p {
+  display: flex;
+  justify-content: flex-start;
+  border-bottom: 4px solid #666;
+}
