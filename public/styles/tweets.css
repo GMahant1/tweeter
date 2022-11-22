@@ -16,18 +16,21 @@
 
 .tweet-header {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.span-feed-username {
-  display: flex;
-  justify-content: flex-end;
+.tweet-header span.feed-username {
+  color: blue;
+  opacity: 0.3;
 }
-
 .tweet-footer {
   display: flex;
   justify-content: space-between;
+}
+
+.tweet-footer span {
+  justify-self: flex-start;
 }
 
 .tweet-footer i:hover {
