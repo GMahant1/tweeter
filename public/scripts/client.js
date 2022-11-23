@@ -68,4 +68,20 @@ const renderTweets = function (tweets) {
 
 renderTweets(data);
 
+$('#submit-tweet').submit(function(event) {
+  alert("Handler for .submit() called.")
+
+  event.preventDefault();
+
+  $.ajax({
+    type: 'POST',
+    url: '/tweets',
+    data: $(this).serialize(),
+    success: function(data) {},
+  });
+  //console.log(data);
+});
+
+
+
 });
