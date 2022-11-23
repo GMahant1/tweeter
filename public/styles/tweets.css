@@ -12,6 +12,7 @@
   flex-flow: column;
   border: 5px solid #666;
   padding: 1em;
+  margin: 1em;
 }
 
 .tweet-header {
