@@ -3,7 +3,7 @@
   flex-flow: row;
 }
 
-.tweet-container:hover {
+.tweet-article:hover {
   box-shadow: 5px 5px green; 
 }
 
