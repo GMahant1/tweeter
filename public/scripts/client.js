@@ -8,32 +8,8 @@
 
 $(document).ready(function() {
 
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
-
 const createTweetElement = function (tweet) {
+  const timeAgo = timeago.format(tweet.created_at - 11 * 1000 * 60 * 60);
   let $tweet = $(`<article class="tweet-article">
             <header class="tweet-header">
               <div>
@@ -46,7 +22,7 @@ const createTweetElement = function (tweet) {
               ${tweet.content.text}            
             </p>  
             <footer class="tweet-footer">
-              <span>${tweet.created_at}</span>
+              <span>${timeAgo}</span>
               <div>
               <i class="fa-solid fa-retweet"></i>
               <i class="fa-solid fa-heart"></i>
@@ -66,22 +42,43 @@ const renderTweets = function (tweets) {
   }
 }
 
-renderTweets(data);
+//renderTweets(data);
 
 $('#submit-tweet').submit(function(event) {
   alert("Handler for .submit() called.")
 
   event.preventDefault();
 
-  $.ajax({
-    type: 'POST',
-    url: '/tweets',
-    data: $(this).serialize(),
-    success: function(data) {},
-  });
-  //console.log(data);
+  if ($(this).serialize() === null) {
+    alert("Your tweet is empty.")
+  }
+
+  if ($("#counter").val() < 0) {
+    alert("Your tweet is too long.")
+  }
+
+  else {
+    $.ajax({
+      type: 'POST',
+      url: '/tweets',
+      data: $(this).serialize(),
+      success: function(data) {},
+    });
+    //console.log(data);
+  }
+  
 });
 
+const loadTweets = function () {
+  $.ajax({
+    type: 'GET',
+    url: '/tweets',
+    success: function(res) {
+      renderTweets(res);
+    },
+  });
+};
 
+loadTweets();
 
 });
