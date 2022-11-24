@@ -52,6 +52,9 @@ $('#submit-tweet').submit(function(event) {
 
   event.preventDefault();
 
+  //clear error message on successful post request
+  $("#error-message").slideUp("fast", function () {$(this).remove()});
+
   //user input 
   const tweetText = $("#tweet-text").val();
 
@@ -60,12 +63,14 @@ $('#submit-tweet').submit(function(event) {
   $("#tweet-text").val(safeTweet);
 
   if (safeTweet.length === 0) {
-    alert("Your tweet is empty.")
+    //alert("Your tweet is empty.")
+    displayErr("Your tweet is empty.");
     return;
   }
 
   if ($("#counter").val() < 0) {
-    alert("Your tweet is too long.")
+    //alert("Your tweet is too long.")
+    displayErr("Your tweet is too long.");
     return;
   }
 
@@ -97,6 +102,24 @@ const escape = function (str) {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
+};
+
+//error element creation
+const createErrorElement = function (Message) {
+  const $error = 
+    $(`<p id="error-message" class="error">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    ${Message}
+    <i class="fa-solid fa-circle-exclamation"></i>
+    </p> `)
+
+    return $error;
+};
+
+const displayErr = function (Message) {
+  const $errorElement = createErrorElement(Message);
+  $($errorElement).prependTo("#submit-tweet").hide().slideDown();
+  //$("#submit-tweet").prepend($errorElement).hide().slideDown();
 };
 
 });
