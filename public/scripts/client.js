@@ -8,6 +8,8 @@
 
 $(document).ready(function() {
 
+
+//create html tweet element using tweet
 const createTweetElement = function (tweet) {
   const timeAgo = timeago.format(tweet.created_at - 11 * 1000 * 60 * 60);
   let $tweet = $(`<article class="tweet-article">
@@ -34,24 +36,30 @@ const createTweetElement = function (tweet) {
           return $tweet;
 };
 
-
+//loop through tweets and create a container for each
 const renderTweets = function (tweets) {
+  $(`.tweet-container`).empty();
   for (tweet of tweets) {
     const $tweetElement = createTweetElement(tweet);
     $(`.tweet-container`).prepend($tweetElement)
   }
 }
 
-//renderTweets(data);
 
+//ajax post request dependent on logic being fulfilled
 $('#submit-tweet').submit(function(event) {
   //alert("Handler for .submit() called.")
 
   event.preventDefault();
 
-  const tweetText = $("#tweet-text").val()
+  //user input 
+  const tweetText = $("#tweet-text").val();
 
-  if (tweetText.length === 0) {
+  //user input made safe and replaced
+  const safeTweet = escape(tweetText);
+  $("#tweet-text").val(safeTweet);
+
+  if (safeTweet.length === 0) {
     alert("Your tweet is empty.")
     return;
   }
@@ -71,6 +79,7 @@ $('#submit-tweet').submit(function(event) {
 
 });
 
+//ajax get request 
 const loadTweets = function () {
   $.ajax({
     type: 'GET',
@@ -82,5 +91,12 @@ const loadTweets = function () {
 };
 
 loadTweets();
+
+//make user text safe ( no code injections )
+const escape = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
 
 });
