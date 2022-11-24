@@ -38,35 +38,37 @@ const createTweetElement = function (tweet) {
 const renderTweets = function (tweets) {
   for (tweet of tweets) {
     const $tweetElement = createTweetElement(tweet);
-    $(`.tweet-container`).append($tweetElement)
+    $(`.tweet-container`).prepend($tweetElement)
   }
 }
 
 //renderTweets(data);
 
 $('#submit-tweet').submit(function(event) {
-  alert("Handler for .submit() called.")
+  //alert("Handler for .submit() called.")
 
   event.preventDefault();
 
-  if ($(this).serialize() === null) {
+  const tweetText = $("#tweet-text").val()
+
+  if (tweetText.length === 0) {
     alert("Your tweet is empty.")
+    return;
   }
 
   if ($("#counter").val() < 0) {
     alert("Your tweet is too long.")
+    return;
   }
 
-  else {
     $.ajax({
       type: 'POST',
       url: '/tweets',
       data: $(this).serialize(),
-      success: function(data) {},
-    });
+    }).then(loadTweets);
     //console.log(data);
-  }
   
+
 });
 
 const loadTweets = function () {
