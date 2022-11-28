@@ -16,3 +16,9 @@ This repository is the starter code for the project: Students will fork and clon
 
 - Express
 - Node 5.10.x or above
+
+## Screenshots 
+
+!["Screenshot of home page displaying feed in desktop format"](https://github.com/GMahant1/tweeter/blob/master/docs/home-page.png?raw=true)
+!["Screenshot of relevant error message and red counter"](https://github.com/GMahant1/tweeter/blob/master/docs/error-message.png?raw=true)
+!["Screenshot of feed reformating for tablet view"](https://github.com/GMahant1/tweeter/blob/master/docs/tablet-view.png?raw=true)
