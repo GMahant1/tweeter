@@ -6,10 +6,11 @@
 
 // Test / driver code (temporary). Eventually will get this from the server.
 
+//load up entire document before starting scripts
 $(document).ready(function() {
 
 
-//create html tweet element using tweet
+//create html tweet element 
 const createTweetElement = function (tweet) {
   const timeAgo = timeago.format(tweet.created_at - 11 * 1000 * 60 * 60);
   let $tweet = $(`<article class="tweet-article">
@@ -50,6 +51,7 @@ const renderTweets = function (tweets) {
 $('#submit-tweet').submit(function(event) {
   //alert("Handler for .submit() called.")
 
+  //stop normal post request to add my own logic
   event.preventDefault();
 
   //clear error message on successful post request
@@ -80,7 +82,7 @@ $('#submit-tweet').submit(function(event) {
       data: $(this).serialize(),
     }).then(loadTweets);
     //console.log(data);
-  
+    clearForm();
 
 });
 
@@ -121,5 +123,11 @@ const displayErr = function (Message) {
   $($errorElement).prependTo("#submit-tweet").hide().slideDown();
   //$("#submit-tweet").prepend($errorElement).hide().slideDown();
 };
+
+const clearForm = function () {
+  const startCount = 140;
+  $('#tweet-text').val('');
+  $('output.counter').val(startCount);
+}
 
 });
