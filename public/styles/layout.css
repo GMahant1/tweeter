@@ -38,3 +38,21 @@ body {
   justify-content: center;
   flex-direction: column;
  }
+
+ @media only screen and (min-width: 1024px) {
+
+ body {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+ }
+
+ main.container {
+  display: flex;
+  width: 60%;
+  align-self: self-end;
+  margin-top: 6em;
+  padding: 1em;
+ }
+
+ }

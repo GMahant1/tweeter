@@ -20,3 +20,15 @@
   justify-content: center;
   align-items: center;
 }
+
+/* full screen */
+
+@media only screen and (min-width: 1024px) {
+  header.nav-header {
+    width: 20%;
+    height: 400px;
+    margin: 11em 8em 0; 
+    padding-top: 1em;
+    align-self: baseline;
+  }
+}
